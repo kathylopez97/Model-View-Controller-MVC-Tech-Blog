@@ -24,9 +24,9 @@ const postData = [
     },
     {
         title: "PWA Progesssive Web Application",
-        content: "is a type of application software delivered through the web, built using common web technologies including HTML, CSS, JavaScript, and WebAssembly.",
+        content: " it is a type of application software delivered through the web, built using common web technologies including HTML, CSS, JavaScript, and WebAssembly.",
         user_id: 4
-    },
+    }
    
 ]
 
