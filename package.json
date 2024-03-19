@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "server": "node server.js",
-    "seed": "node seed.js"
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+
+  
   },
   "keywords": [],
   "author": "",
@@ -33,6 +35,7 @@
     "nopt": "^7.2.0",
     "npmlog": "^7.0.1",
     "rimraf": "^5.0.5",
+    "seeds": "^2.3.1",
     "semver": "^7.6.0",
     "sequelize": "^6.37.1",
     "server": "^1.0.39",
