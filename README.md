@@ -110,8 +110,11 @@ Instructions on how to use the MVC Tech Blog
    node server.js
    ```
 
-## Usage 
-![ORM Backend screenshot](images/ORM.png)
+## Usage
+![login](public/images/login.png)
+![blog1](public/images/blog1.png)
+![blog2](public/images/blog2.png)
+
 ## Credits 
 - Heroku:[Heroku](https://coding-boot-camp.github.io/full-stack/heroku/how-to-install-the-heroku-cli)
 - Visual Studio Code: [VS Code](https://code.visualstudio.com/)
