@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS ktechblog_db;
-CREATE DATABASE ktechblog_db;
