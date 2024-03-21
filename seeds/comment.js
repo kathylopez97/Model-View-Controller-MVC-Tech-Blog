@@ -1,3 +1,4 @@
+// Comment function to call models
 const { Comment } = require('../models');
 
 const commentData = [

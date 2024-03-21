@@ -1,5 +1,8 @@
+// import router , express , and models
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+
+// GET routes collect data 
 router.get('/', (req, res) => {
     User.findAll({
             attributes: { exclude: ['[password'] }
@@ -11,6 +14,7 @@ router.get('/', (req, res) => {
         });
 });
 
+// GET requests collect data
 router.get('/:id', (req, res) => {
     User.findOne({
             attributes: { exclude: ['password'] },
@@ -54,7 +58,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-
+// POST requests to users
 router.post('/', (req, res) => {
 
     User.create({
@@ -77,7 +81,7 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
         });
 });
-
+// POST requests to username
 router.post('/login', (req, res) => {
     User.findOne({
             where: {
@@ -109,6 +113,7 @@ router.post('/login', (req, res) => {
         });
 });
 
+// POST routes logout 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -118,6 +123,8 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
+
+// PUT routes user update 
 
 router.put('/:id', (req, res) => {
 
@@ -140,7 +147,7 @@ router.put('/:id', (req, res) => {
         });
 
 });
-
+// DELETE routes to post
 router.delete('/:id', (req, res) => {
     User.destroy({
             where: {
@@ -159,5 +166,7 @@ router.delete('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+//import export 
 
 module.exports = router;

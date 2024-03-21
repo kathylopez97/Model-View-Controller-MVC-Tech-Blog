@@ -1,9 +1,9 @@
 // import sequelize
 const Sequelize = require('sequelize');
 require('dotenv').config();
-
+// this functions lets sequelize to connect database to run server
 let sequelize;
-
+// connect jawsurl using sequelize
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
@@ -18,5 +18,5 @@ if (process.env.JAWSDB_URL) {
     }
   );
 }
-
+// export sequelize 
 module.exports = sequelize;

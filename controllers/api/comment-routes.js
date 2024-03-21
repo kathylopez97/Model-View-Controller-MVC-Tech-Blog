@@ -1,3 +1,4 @@
+// This function calls the comment to router 
 const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -9,6 +10,8 @@ router.get('/', (req, res) => {
             res.status(500).json(err);
         })
 });
+
+// This function  GET routes to collect  comment data 
 
 router.get('/:id', (req, res) => {
     Comment.findAll({
@@ -22,6 +25,8 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         })
 });
+
+// This function  POST routes to collect user , post and comment ids
 
 router.post('/', withAuth, (req, res) => {
     if (req.session) {
@@ -38,6 +43,7 @@ router.post('/', withAuth, (req, res) => {
     }
 });
 
+// this function PUT routes comment data text 
 router.put('/:id', withAuth, (req, res) => {
     Comment.update({
         comment_text: req.body.comment_text
@@ -57,6 +63,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+// this function DELETE routes comment data 
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
@@ -73,4 +80,5 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+// export router
 module.exports = router;

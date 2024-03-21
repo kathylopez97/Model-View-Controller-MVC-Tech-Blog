@@ -1,7 +1,9 @@
+// import files 
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const router = require('express').Router();
 
+// GET request 
 router.get('/', (req, res) => {
     Post.findAll({
             attributes: [
@@ -34,6 +36,7 @@ router.get('/', (req, res) => {
         });
 });
 
+// GET post login 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
@@ -46,6 +49,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// GET post id
 router.get('/post/:id', (req, res) => {
     Post.findOne({
             where: {
@@ -87,6 +91,7 @@ router.get('/post/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+// GET post comments
 router.get('/posts-comments', (req, res) => {
     Post.findOne({
             where: {
@@ -127,4 +132,5 @@ router.get('/posts-comments', (req, res) => {
         });
 });
 
+//import exports 
 module.exports = router;

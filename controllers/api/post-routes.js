@@ -1,8 +1,9 @@
+// import  routers , models , sequelize, and withAuth
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
-
+/// this router to models user comment 
 router.get('/', (req, res) => {
     console.log('======================');
     Post.findAll({
@@ -35,6 +36,7 @@ router.get('/', (req, res) => {
         });
 
 });
+// GET routes to models 
 router.get('/:id', (req, res) => {
     Post.findOne({
             where: {
@@ -71,7 +73,8 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-
+ 
+// POST routes from user 
 router.post('/', withAuth, (req, res) => {
     Post.create({
             title: req.body.title,
@@ -84,7 +87,7 @@ router.post('/', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
-
+// PUT routes to post data 
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
             title: req.body.title,
@@ -105,6 +108,7 @@ router.put('/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+// DELETE routes from posts
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
@@ -122,4 +126,5 @@ router.delete('/:id', withAuth, (req, res) => {
     });
 });
 
+// import exports to router
 module.exports = router;

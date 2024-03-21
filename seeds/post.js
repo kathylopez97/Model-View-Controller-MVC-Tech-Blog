@@ -1,3 +1,4 @@
+// Post data to call models
 const { Post } = require('../models');
 
 const postData = 
